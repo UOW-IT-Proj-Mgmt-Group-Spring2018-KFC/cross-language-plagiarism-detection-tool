@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Rosetta Stone</title>
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="stylesheet" href="http://demos.jquerymobile.com/1.4.5/css/themes/default/jquery.mobile-1.4.5.min.css">
+	<link rel="stylesheet" href="http://demos.jquerymobile.com/1.4.5/_assets/css/jqm-demos.css">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+	<script src="http://demos.jquerymobile.com/1.4.5/js/jquery.js"></script>
+	<script src="http://demos.jquerymobile.com/1.4.5/_assets/js/index.js"></script>
+	<script src="http://demos.jquerymobile.com/1.4.5/js/jquery.mobile-1.4.5.min.js"></script>
+    
+    <script src="js/validate.js"></script>
+    <script src="js/sign_in.js"></script>
+</head>
+<body>
+    
+<div data-role="page" class="jqm-demos jqm-home">
+
+    <div data-role="header" class="jqm-header">
+        <h2><a tabindex="-1" href="#" data-ajax="false"><img src="img/logo.png" alt="logo"></a></h2>
+        <a href="#" class="jqm-navmenu-link ui-btn ui-btn-icon-notext ui-corner-all ui-icon-bars ui-nodisc-icon ui-alt-icon ui-btn-left">Menu</a>
+    </div><!-- /header -->
+
+    <div data-role="panel" class="jqm-navmenu-panel" data-position="left" data-display="overlay" data-theme="a">
+        <ul class="jqm-list ui-alt-icon ui-nodisc-icon">
+        <li data-filtertext="demos homepage" data-icon="home">
+            <a href="#" data-ajax="false">Homepage</a>
+        </li>
+        <li data-filtertext="form button widget input button submit reset">
+            <a href="open_about.html" data-ajax="false">About</a>
+        </li>
+     </ul>
+    </div><!-- /panel -->
+
+    <div data-role="main" class="" style="width: 280px; margin:0 auto;"> <!-- <div data-role="content" class="content" style="width: 280px; margin:0 auto;"> -->
+    <!-- <div role="main" class="ui-content jqm-content" style="width: 280px; float: clear; margin:0 auto; text-align:center;"> -->
+        <form data-infoColor="#ff8027" data-ajax="false" action="file_list.html" method="post" id="sign-in-form">
+            
+            <!--<fieldset data-role="controlgroup">-->
+                <label id='error-info' style='color:#ff8027;display:none;'></label>
+
+                <label id='username-info' style='display:none;'></label>
+                <input class="auto-validate" data-allowBlank="false" data-blankText="Enter your username" tabindex="1" type="text" name="username" id="username" value="" placeholder="username" />
+
+                <label id='password-info' style='display:none;'></label>
+                <input class="auto-validate" data-allowBlank="false" data-blankText="Enter your password" tabindex="2" type="password" name="password" id="password" placeholder="password" value=""/>
+
+                <input tabindex="3" type="checkbox" name="remember-me" id="remember-me" data-mini="false" />
+                <label for="remember-me">Keep me sign in</label>
+                
+                <!--<fieldset data-role="controlgroup" data-type="horizontal" data-mini="false">-->
+                <label id='verification-codes-info' style='display:none;'></label>
+                <table id="verification" style="width:100%; display:none;">
+                    <tr>
+                        <td>
+                            <a href="javascript: void(0);">
+                            <img alt="verification-image" style="border-width: 1px; border-bottom-left-radius:5px;border-bottom-right-radius:5px;border-top-left-radius:5px;border-top-right-radius:5px;margin-top:0.2em;height:34px;"
+                                title="change image" id="verification-image" src="VerificationCodes" width="70" height="30" />
+                            </a>
+                        </td>
+                        <td>
+                            <input class="" data-allowBlank="false" data-blankText="Enter verification code" tabindex="4" style="width:100%;" type="text" name="verification-codes" id="verification-codes" value="" placeholder="click img to change" />
+                        </td>
+                    </tr>
+                </table>
+                <!--</fieldset>-->
+            <!--</fieldset>-->
+
+            <button tabindex="5" type="button" data-role="button" id="sign-in-button" data-theme="b">Sign in</button>
+            
+            <br/>
+            <fieldset data-role="controlgroup">
+                <span>New user?</span>
+                <a tabindex="6" href="sign_up.html" data-ajax="false" id="toregist" data-theme="b">Sign up</a>
+            </fieldset>
+        </form>
+
+        
+    </div>
+
+    <div data-role="footer" data-position="fixed" data-tap-toggle="false" class="jqm-footer">
+        <!--<p>jQuery Mobile Demos version <span class="jqm-version"></span></p>-->
+        <p>Rosetta Stone, a cross-language plagiarism detection tool.</p>
+        <p>Copyright 2018</p>
+    </div><!-- /footer -->
+</div>
+
+</body>
+</html>

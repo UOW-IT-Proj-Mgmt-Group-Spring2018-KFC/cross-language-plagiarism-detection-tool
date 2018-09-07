@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Text file</title>
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="stylesheet" href="http://demos.jquerymobile.com/1.4.5/css/themes/default/jquery.mobile-1.4.5.min.css">
+	<link rel="stylesheet" href="http://demos.jquerymobile.com/1.4.5/_assets/css/jqm-demos.css">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+
+    <link rel="stylesheet" href="http://demos.jquerymobile.com/1.4.5/_assets/css/jqm-demos.css">
+
+	<script src="http://demos.jquerymobile.com/1.4.5/js/jquery.js"></script>
+	<script src="http://demos.jquerymobile.com/1.4.5/_assets/js/index.js"></script>
+	<script src="http://demos.jquerymobile.com/1.4.5/js/jquery.mobile-1.4.5.min.js"></script>
+
+    <script src="js/submit_file.js"></script>
+</head>
+<body>
+    
+<div data-role="page" class="jqm-demos">
+
+    <div data-role="header" class="jqm-header">
+        <h2><a tabindex="-1" href="#" data-ajax="false"><img src="img/logo.png" alt="logo"></a></h2>
+        <a href="#" class="jqm-navmenu-link ui-btn ui-btn-icon-notext ui-corner-all ui-icon-bars ui-nodisc-icon ui-alt-icon ui-btn-left">Menu</a>
+    </div><!-- /header -->
+
+    <div data-role="panel" class="jqm-navmenu-panel" data-position="left" data-display="overlay" data-theme="a">
+        <ul class="jqm-list ui-alt-icon ui-nodisc-icon">
+            <li data-filtertext="demos homepage" data-icon="back">
+                <a href="file_list.html" data-ajax="false">File list</a>
+            </li>
+            <li data-filtertext="demos homepage" data-icon="home">
+                <a href="index.html" data-ajax="false">Logout</a>
+            </li>
+            <li data-filtertext="form button widget input button submit reset">
+                <a href="open_about.html" data-ajax="false">About</a>
+            </li>
+        </ul>
+    </div><!-- /panel -->
+
+    <div data-role="main" class="ui-content jqm-content"> <!-- <div data-role="content" class="content" style="width: 280px; margin:0 auto;"> -->
+    <!-- <div role="main" class="ui-content jqm-content" style="width: 280px; float: clear; margin:0 auto; text-align:center;"> -->
+
+        <form data-ajax="false" action="file_list.html" method="get" id="submit-form">
+
+            <!--<fieldset data-role="controlgroup">-->
+            <label id='error-info' style='color:#ff8027;display:none;'></label>
+
+            <label id='sendto-info' style='display:none;'></label>
+            <input tabindex="1" type="text" name="send-to" id="send-to" value="" placeholder="submit to" />
+
+            <label id='title-info' style='display:none;'></label>
+            <input tabindex="2" type="text" name="title" id="title" placeholder="title" value=""/>
+
+            <label id='textarea-info' style='display:none;'></label>
+
+            <textarea style="height: 40em;" placeholder="Type here ..." value="" tabindex="3" cols="80" rows="25" name="textarea" id="textarea"></textarea>
+            <br/>
+
+            <button tabindex="4" type="button" data-role="button" id="submit-file-button" data-theme="c">Submit</button>
+        </form>
+
+    </div>
+
+    <div data-role="footer" data-position="fixed" data-tap-toggle="false" class="jqm-footer">
+        <!--<p>jQuery Mobile Demos version <span class="jqm-version"></span></p>-->
+        <p>Rosetta Stone, a cross-language plagiarism detection tool.</p>
+        <p>Copyright 2018</p>
+    </div><!-- /footer -->
+</div>
+
+</body>
+</html>

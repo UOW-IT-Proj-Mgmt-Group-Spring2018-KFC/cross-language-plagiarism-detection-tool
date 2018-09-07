@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>file info</title>
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="stylesheet" href="http://demos.jquerymobile.com/1.4.5/css/themes/default/jquery.mobile-1.4.5.min.css">
+	<link rel="stylesheet" href="http://demos.jquerymobile.com/1.4.5/_assets/css/jqm-demos.css">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+
+    <link rel="stylesheet" href="http://demos.jquerymobile.com/1.4.5/_assets/css/jqm-demos.css">
+
+	<script src="http://demos.jquerymobile.com/1.4.5/js/jquery.js"></script>
+	<script src="http://demos.jquerymobile.com/1.4.5/_assets/js/index.js"></script>
+	<script src="http://demos.jquerymobile.com/1.4.5/js/jquery.mobile-1.4.5.min.js"></script>
+
+    <script src="js/file_info.js"></script>
+
+    <style>
+        [name=m-1] {
+            background-color: rgba(255, 0, 0, 0.2);
+        }
+
+        [name=m-2] {
+            background-color: rgba(129, 0, 128, 0.2);
+        }
+
+        sup.number {
+            font-size: 0.6em;
+            position: absolute;
+
+            background-color: rgba(255, 0, 0, 1);
+            color: white;
+
+            margin-top: -0.5em;
+            margin-left: -0.5em;
+            padding-left: 0.4em;
+            padding-right: 0.4em;
+
+            border-radius: 0.4em;
+        }
+
+        /* stack all grids below 40em (640px) */
+        /* 42em 55em 75em */
+        /*
+        @media all and (min-width: 40em) {
+            .ui-block-b {
+                width: 20%;
+                float: left;
+            }
+
+            .ui-block-b {
+                width: 20%;
+                float: left;
+            }
+
+            .ui-block-c {
+                width: 20%;
+                float: left;
+            }
+        } */
+    </style>
+
+    <style>
+        /* Basic styles */
+        .rwd-example .ui-body {
+            text-align: left;
+            border-color: #ddd;
+        }
+        .rwd-example p {
+            color: #777;
+            line-height: 140%
+        }
+
+        /* Stack all blocks to start */
+        .rwd-example .ui-block-a,
+        .rwd-example .ui-block-b,
+        .rwd-example .ui-block-c {
+            width: 100%;
+            float: none;
+        }
+
+        /* Collapsing borders */
+        .rwd-example > div + div .ui-body {
+            border-top-width: 0;
+        }
+
+        /* 1st breakpoint - Float B and C, leave A full width on top */
+        @media all and (min-width: 42em) {
+            .rwd-example {
+                overflow: hidden; /* Use this or a "clearfix" to give the container height */
+            }
+            /*
+            .rwd-example .ui-body {
+                min-height: 14em;
+            }
+            .rwd-example .ui-block-b,
+            .rwd-example .ui-block-c {
+            .rwd-example .ui-body {
+                min-height: 18em;
+            }
+            */
+            .rwd-example .ui-block-a {
+                float: left;
+                width: 100%;
+            }
+
+            .rwd-example .ui-block-b {
+                float: left;
+                width: 100%; /*49.95%;*/
+            }
+            /* .rwd-example .ui-block-b, */
+            .rwd-example .ui-block-c {
+                float: left;
+                width: 100%; /*24.925%;*/
+            }
+            .rwd-example > div:first-child .ui-body {
+                border-bottom-width: 1px;
+            }
+            .rwd-example > div + div .ui-body {
+                border-left-width: 0;
+            }
+        }
+
+        /* 2nd breakpoint - Float all, 50/25/25 */
+        @media all and (min-width: 55em) {
+            .rwd-example .ui-body {
+                min-height: 18em;
+            }
+            .rwd-example .ui-block-a {
+                float: left;
+                width: 35%;
+            }
+
+            .rwd-example .ui-block-b {
+                float: left;
+                width: 35%; /*49.95%;*/
+            }
+            /* .rwd-example .ui-block-b, */
+            .rwd-example .ui-block-c {
+                float: left;
+                width: 25%; /*24.925%;*/
+            }
+            .rwd-example > div:first-child .ui-body {
+                border-bottom-width: 1px;
+            }
+            .rwd-example > div + div .ui-body {
+                border-left-width: 0;
+            }
+        }
+
+        /* 3rd breakpoint - Bump up font size at very wide screens */
+        @media all and (min-width: 75em) {
+            /*
+            .rwd-example .ui-body {
+                font-size: 125%;
+            }
+            .rwd-example .ui-block-a,
+            .rwd-example .ui-block-c {
+                float: left;
+                width: 49.95%;
+            }
+            .rwd-example .ui-block-b,
+            .rwd-example .ui-block-c {
+                float: left;
+                width: 24.925%;
+            }
+            */
+
+            .rwd-example .ui-body {
+                min-height: 18em;
+            }
+            .rwd-example .ui-block-a {
+                float: left;
+                width: 35.5%;
+            }
+
+            .rwd-example .ui-block-b {
+                float: left;
+                width: 35.5%; /*49.95%;*/
+            }
+            /* .rwd-example .ui-block-b, */
+            .rwd-example .ui-block-c {
+                float: left;
+                width: 25%; /*24.925%;*/
+            }
+            .rwd-example > div:first-child .ui-body {
+                border-bottom-width: 1px;
+            }
+            .rwd-example > div + div .ui-body {
+                border-left-width: 0;
+            }
+
+        }
+    </style>
+</head>
+<body>
+    
+<div data-role="page" class="jqm-demos">
+
+    <div data-role="header" class="jqm-header">
+        <h2><a tabindex="-1" href="file_list.html" data-ajax="false"><img src="img/logo.png" alt="logo"></a></h2>
+        <a href="#" class="jqm-navmenu-link ui-btn ui-btn-icon-notext ui-corner-all ui-icon-bars ui-nodisc-icon ui-alt-icon ui-btn-left">Menu</a>
+    </div><!-- /header -->
+
+    <!--
+    <a style="margin-left: 0.5em;" href="file_list.html" data-ajax="false" class="ui-icon-back ui-btn-icon-left ui-btn ui-btn-inline ui-corner-all">File list</a>
+    <a style="float: right; margin-right: 0.5em;" href="index.html" data-ajax="false" class="ui-icon-plus ui-btn-icon-left ui-btn ui-btn-inline ui-corner-all">Logout</a>
+    -->
+
+    <!-- <div data-role="main" class="ui-content jqm-content"> <!-- <div data-role="content" class="content" style="width: 280px; margin:0 auto;"> -->
+    <!-- <div role="main" class="ui-content jqm-content" style="width: 280px; float: clear; margin:0 auto; text-align:center;"> -->
+    <!-- <div data-demo-html="true" data-demo-css="true"> -->
+    <div>
+        <div class="rwd-example">
+            <div class="ui-block-a jqm-block-content">
+                <div class="ui-body ui-body-d">
+                    <h3>English</h3>
+
+                    <h4 style="color: dodgerblue;">What is anorexia nervosa?</h4>
+
+                    <p>Anorexia nervosa is a distorted body image that overestimates personal body fatness and an <span name="m-1"><sup class="number">1</sup>eating disorder affecting mainly girls or women although boys or men can also suffer from it. It usually starts in the teenage years.</span> It is estimated that about one out of every 100 adolescent girls has the disorder. Caucasians are more often affected than people of other racial backgrounds, and anorexia is more common in middle and upper socioeconomic groups. The overwhelming desire to become thing drives people with anorexia nervosa to refuse to eat even then they are hungry.Although adults often describe people with anorexia as “model students” their personal lives are usually marred by low self-esteem, social isolation and unhappiness. Anorexia nervosa cannot be self-diagnosed.</p>
+
+                    <p>We can characterise the people with this disease by their body because their weight is maintained at least 15 per cent below that expected for a person’s height. It is self-induced weight loss caused by a avoiding fattening foods and many involve taking.</p>
+
+                    <p>
+                        <span name="m-2"><sup class="number">2</sup>
+                        Anorexia nervosa (AN) refers to a kind of eating disorder characterized by intentionally lower body weight than normal by dieting and other means. It belongs to the category of "physiological disorders related to psychological factors" in the field of psychiatry. Its main characteristics are a strong fear of weight gain and obesity characterized by extreme concern for weight and body shape, blind pursuit of slim weight, significant weight loss, often malnutrition, metabolic and endocrine disorders, such as female amenorrhea. Severe malnutrition can lead to cachexia, body failure and life threatening. 5% - 15% of the patients eventually die of heart complications, multiple organ failure, secondary infection, suicide and so on.
+                    </p>
+                </div>
+            </div>
+
+            <div class="ui-block-b jqm-block-content">
+                <div class="ui-body ui-body-d">
+                    <h3>Chinese</h3>
+
+                    <h4 style="color: dodgerblue;">什么是神经性厌食症？</h4>
+
+                    <p>神经性厌食症是一种扭曲的身体形象，高估了个人的身体肥胖和主要影响女孩或女性的饮食失调，尽管男孩或男人也可能患有此病。 它通常始于青少年时期。
+                        据估计，每100名青春期少女中就有一名患有这种疾病。
+                        高加索人比其他种族背景的人更容易受到影响，厌食症在中上层社会经济群体中更为常见。
+                        成为事物的压倒性欲望驱使患有神经性厌食症的人拒绝进食，即使这样他们仍然感到饥饿。
+                        虽然成年人经常将患有厌食症的人描述为“模范学生”，但他们的个人生活往往受到低自尊，社会孤立和不快乐的影响。
+                        神经性厌食症不能自我诊断。
+                    </p>
+
+                    <p>
+                        我们可以通过他们的身体来描述患有这种疾病的人，因为他们的体重至少比一个人的身高预期低15％。 这是由于避免增加食物而引起的自我减轻的体重减轻，并且许多都涉及服用。
+                    </p>
+
+                    <p>
+                        <span name="m-2"><sup class="number">2</sup>
+                        神经性厌食症（AN）是指一种进食障碍，其特征在于通过节食和其他方式故意降低体重。 它属于精神病学领域的“与心理因素有关的生理障碍”类别。 其主要特征是对体重增加和肥胖的强烈恐惧，其特征在于极度关注体重和体形，盲目追求瘦身，显着减轻体重，常常营养不良，代谢和内分泌失调，如女性闭经。 严重营养不良可导致恶病质，身体衰竭和危及生命。 5％ - 15％的患者最终死于心脏并发症，多器官衰竭，继发感染，自杀等。
+                        </span>
+                    </p>
+
+                </div>
+            </div>
+
+            <div class="ui-block-c jqm-block-content">
+                <div class="ui-body ui-body-d">
+                    <h3>Mach Overview<div style="flot:left; font-size: 60%; color: rgba(255, 0, 0, 0.8); float: right;">90% &nbsp<img alt="20%" src="img/90.png" style="width: 0.8em; height: 0.9em;"></div></h3>
+
+                    <h4 style="display:inline; color: rgba(255, 0, 0, 0.8);">1<div style="color: black; float: right;">10%</div></h4>
+                    <a target="view_window" style="color: rgba(255, 0, 0, 0.8);" href="https://canadiancrc.com/Anorexia_Nervosa.aspx">canadiancrc.com</a>
+                    <p>... Anorexia nervosa is an <span name="m-1">eating disorder affecting mainly girls or women, although boys or men can also suffer from it. It usually starts in the teenage years.</span>
+
+                        It is difficult ...
+                    </p>
+
+                    <h4 style="display:inline; color: rgba(255, 0, 0, 0.8);">2<div style="color: black; float: right;">15%</div></h4>
+                    <a target="view_window" style="color: rgba(255, 0, 0, 0.8);" href="https://baike.baidu.com/item/%E7%A5%9E%E7%BB%8F%E6%80%A7%E5%8E%8C%E9%A3%9F/5319012?fr=aladdin">baike.baidu.com</a>
+                    <p>...
+                        <span name="m-2">
+                            神经性厌食（AN）指个体通过节食等手段，有意造成并维持体重明显低于正常标准为特征的一种进食障碍，属于精神科领域中“与心理因素相关的生理障碍”一类。其主要特征是以强烈害怕体重增加和发胖为特点的对体重和体型的极度关注，盲目追求苗条，体重显著减轻，常有营养不良、代谢和内分泌紊乱，如女性出现闭经。严重患者可因极度营养不良而出现恶病质状态、机体衰竭从而危及生命，5%～15%的患者最后死于心脏并发症、多器官功能衰竭、继发感染、自杀等。
+                        </span> ...
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--</div> -->
+
+    <div data-role="footer" data-position="fixed" data-tap-toggle="false" class="jqm-footer">
+        <!--<p>jQuery Mobile Demos version <span class="jqm-version"></span></p>-->
+        <p>Rosetta Stone, a cross-language plagiarism detection tool.</p>
+        <p>Copyright 2018</p>
+    </div><!-- /footer -->
+</div>
+
+</body>
+</html>
