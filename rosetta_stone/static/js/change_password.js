@@ -1,4 +1,5 @@
 $(function() {
+    $.FormValidator.init('changepassword-form');
 
     $('#ok-button').bind('click', function() {
         $('#info-dialog').popup('close');
@@ -8,35 +9,35 @@ $(function() {
     $('#change-button').click(function() {
         var valid = true;
         
-        var oldpassword = $('#old-password').val().trim();
-        if(0 >= oldpassword.length) {
-            $('#old-password-info').html('! It is necessary');
-            $('#old-password-info').show();
-            valid = false;
-        } else {
-            $('#old-password-info').hide();
-        }
-
         var password = $('#password').val().trim();
         if(0 >= password.length) {
-            $('#password-info').html('! It is necessary');
+            $('#password-info').html('Password please');
             $('#password-info').show();
             valid = false;
         } else {
             $('#password-info').hide();
         }
-        
-        var repassword = $('#repassword').val().trim();
-        if(0 >= repassword.length) {
-            $('#repassword-info').html('! It is necessary');
-            $('#repassword-info').show();
+
+        var new_password = $('#new-password').val().trim();
+        if(0 >= new_password.length) {
+            $('#new-password-info').html('New password please');
+            $('#new-password-info').show();
             valid = false;
         } else {
-            $('#repassword-info').hide();
-            if (password != repassword) {
-                $('#password-info').hide();
-                $('#repassword-info').html('! Your enter different passwords');
-                $('#repassword-info').show();
+            $('#new-password-info').hide();
+        }
+        
+        var re_new_password = $('#re-new-password').val().trim();
+        if(0 >= re_new_password.length) {
+            $('#re-new-password-info').html('Repeat new password please');
+            $('#re-new-password-info').show();
+            valid = false;
+        } else {
+            $('#re-new-password-info').hide();
+            if (new_password != re_new_password) {
+                $('#re-new-password-info').hide();
+                $('#re-new-password-info').html('Your input different passwords');
+                $('#re-new-password-info').show();
                 valid = false;
             }
         }
@@ -45,14 +46,13 @@ $(function() {
             return;
         }
         
-        var ajaxData = 'old-password=' + oldpassword + 
-            '&password=' + password + 
-            '&repassword=' + repassword;
+        var ajaxData = 'password=' + password +
+            '&new-password=' + new_password;
         
         $.ajax({
             dataType: "json",
             type: 'POST',
-            url: 'ChangePassword',
+            url: 'changepassword',
             data: ajaxData,
             success: function (data) {
                 if (data.success) {
@@ -64,7 +64,7 @@ $(function() {
                     });
 
                     $('#info-title').html('Successful!');
-                    $('#info').html('');
+                    $('#info').html(data.errmsg);
                     $('#info-dialog').popup('open');
                 } else {
                     if (data.name && 0 < data.name.length) {
@@ -73,7 +73,7 @@ $(function() {
                         $('#' + data.name).focus();
                     } else {
                         $('#info-title').html('Failed!');
-                        $('#info').html('Please try again later');
+                        $('#info').html(data.errmsg);
                         $('#info-dialog').popup('open');
                     }
                 }

@@ -5,12 +5,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Rosetta Stone</title>
 	<link rel="shortcut icon" href="favicon.ico">
-	<link rel="stylesheet" href="http://demos.jquerymobile.com/1.4.5/css/themes/default/jquery.mobile-1.4.5.min.css">
-	<link rel="stylesheet" href="http://demos.jquerymobile.com/1.4.5/_assets/css/jqm-demos.css">
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
-	<script src="http://demos.jquerymobile.com/1.4.5/js/jquery.js"></script>
-	<script src="http://demos.jquerymobile.com/1.4.5/_assets/js/index.js"></script>
-	<script src="http://demos.jquerymobile.com/1.4.5/js/jquery.mobile-1.4.5.min.js"></script>
+	<link rel="stylesheet" href="https://demos.jquerymobile.com/1.4.5/css/themes/default/jquery.mobile-1.4.5.min.css">
+	<link rel="stylesheet" href="https://demos.jquerymobile.com/1.4.5/_assets/css/jqm-demos.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+	<script src="https://demos.jquerymobile.com/1.4.5/js/jquery.js"></script>
+	<script src="https://demos.jquerymobile.com/1.4.5/_assets/js/index.js"></script>
+	<script src="https://demos.jquerymobile.com/1.4.5/js/jquery.mobile-1.4.5.min.js"></script>
     
     <script src="js/validate.js"></script>
     <script src="js/sign_in.js"></script>
@@ -26,9 +26,7 @@
 
     <div data-role="panel" class="jqm-navmenu-panel" data-position="left" data-display="overlay" data-theme="a">
         <ul class="jqm-list ui-alt-icon ui-nodisc-icon">
-        <li data-filtertext="demos homepage" data-icon="home">
-            <a href="#" data-ajax="false">Homepage</a>
-        </li>
+
         <li data-filtertext="form button widget input button submit reset">
             <a href="open_about.html" data-ajax="false">About</a>
         </li>
@@ -40,18 +38,19 @@
         <form data-infoColor="#ff8027" data-ajax="false" action="file_list.html" method="post" id="sign-in-form">
             
             <!--<fieldset data-role="controlgroup">-->
-                <label id='error-info' style='color:#ff8027;display:none;'></label>
+            <label id='error-info' style='color:#ff8027;display:none;'></label>
 
-                <label id='username-info' style='display:none;'></label>
-                <input class="auto-validate" data-allowBlank="false" data-blankText="Enter your username" tabindex="1" type="text" name="username" id="username" value="" placeholder="username" />
+                <label id='email-info' style='display:none;'></label>
+                <input class="auto-validate" data-allowBlank="false" data-blankText="input your email" tabindex="1" regex="/\w+[@]{1}\w+[.]\w+/" regexText="invalid email" type="text" name="email" id="email" value="" placeholder="email" />
 
                 <label id='password-info' style='display:none;'></label>
-                <input class="auto-validate" data-allowBlank="false" data-blankText="Enter your password" tabindex="2" type="password" name="password" id="password" placeholder="password" value=""/>
+                <input class="auto-validate" data-allowBlank="false" data-blankText="input your password" tabindex="2" type="password" name="password" id="password" placeholder="password" value=""/>
 
                 <input tabindex="3" type="checkbox" name="remember-me" id="remember-me" data-mini="false" />
                 <label for="remember-me">Keep me signed in</label>
-                
+
                 <!--<fieldset data-role="controlgroup" data-type="horizontal" data-mini="false">-->
+                <!--
                 <label id='verification-codes-info' style='display:none;'></label>
                 <table id="verification" style="width:100%; display:none;">
                     <tr>
@@ -66,6 +65,8 @@
                         </td>
                     </tr>
                 </table>
+                -->
+
                 <!--</fieldset>-->
             <!--</fieldset>-->
 

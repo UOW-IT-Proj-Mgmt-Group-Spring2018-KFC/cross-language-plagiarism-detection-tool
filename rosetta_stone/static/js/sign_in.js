@@ -12,25 +12,27 @@ $(function() {
         var r = $.FormValidator.validate('sign-in-form');
         if (false == r) {
             // !!!
-            $.mobile.changePage('file_list.html');
+            // $.mobile.changePage('file_list.html');
 
             return;
         }
         
         var email = $('#email').val().trim();
+        // var username = $('#username').val().trim();
         var password = $('#password').val().trim();
-        var verificationCodes = $('#verification-codes').val().trim();
+        // var verificationCodes = $('#verification-codes').val().trim();
         
         // go sign in
-        var ajaxData = 'email=' + email + 
+        var ajaxData = 'email=' + email +
+            // 'username=' + username +
             '&password=' + password + 
-            '&verification-codes=' + verificationCodes + 
+            // '&verification-codes=' + verificationCodes +
             '&remember-me=' + $('#remember-me').prop('checked');
 
         $.ajax({
             dataType: "json",
             type: 'POST',
-            url: 'SignIn',
+            url: 'signin',
             data: ajaxData,
             success: function (data) {
 

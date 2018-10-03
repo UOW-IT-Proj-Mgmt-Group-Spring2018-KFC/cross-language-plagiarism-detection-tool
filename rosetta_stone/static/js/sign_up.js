@@ -1,9 +1,11 @@
 $(function() {
     $.FormValidator.init('signup-form');
 
+    /*
     $('#verification-image').click(function() {
-        $(this).attr('src', 'VerificationCodes' + '?' + Math.random()); // random! 强制刷新
+        $(this).attr('src', 'VerificationCodes' + '?' + Math.random()); // random!
     });
+    */
     
     $('#ok-button').bind('click', function() {
         $('#info-dialog').popup('close');
@@ -20,12 +22,13 @@ $(function() {
         var repassword = $('#repassword').val().trim();
         if (password != repassword) {
             $('#password-info').hide();
-            $('#repassword-info').html('! You enter different password');
+            $('#repassword-info').html('you input different passwords');
             $('#repassword-info').show();
             return;
         }
         
-        var name = $('#name').val().trim();
+        // var name = $('#name').val().trim();
+        /*
         var gender = $("#gender").val();
         
         var yob = 0;
@@ -39,24 +42,25 @@ $(function() {
         }
         
         console.log(yob);
+        */
 
-        var vPrivate = $('#private').prop('checked');
-        var verificationCodes = $('#verification-codes').val().trim();
+        // var vPrivate = $('#private').prop('checked');
+        // var verificationCodes = $('#verification-codes').val().trim();
         
         // go sign in
         var ajaxData = 'email=' + email + 
             '&password=' + password + 
-            '&repassword=' + repassword + 
-            '&name=' + name + 
-            '&gender=' + gender + 
-            '&yob=' + yob + 
-            '&private=' + vPrivate + 
-            '&verification-codes=' + verificationCodes;
+            // '&repassword=' + repassword +
+            '&name=' + name; // +
+            // '&gender=' + gender +
+            // '&yob=' + yob +
+            // '&private=' + vPrivate; // +
+            // '&verification-codes=' + verificationCodes;
         
         $.ajax({
             dataType: "json",
             type: 'POST',
-            url: 'SignUp',
+            url: 'signup',
             data: ajaxData,
             success: function (data) {
                 if (data.success) {
@@ -67,23 +71,28 @@ $(function() {
                         }
                     });
                     $('#info-title').html('Successful');
-                    $('#into').html('Register code has been sent to your email box. Please use the link to active your account.');
+                    $('#into').html('Active code has been sent to your email box. Please use the link to active your account.');
                     $('#info-dialog').popup('open');
                 } else {
-                    /*
-                    
-                    */
+                    $('#info-dialog').popup({
+                        afterclose: function (event, ui) {
+                            // console.log('! close !');
+                        }
+                    });
+                    $('#info-title').html('!');
+                    $('#info').html(data.errmsg);
+                    $('#info-dialog').popup('open');
                 }
             },
             error: function (jqXHR, textStatus, errorThrown) {
                 $('#info-dialog').popup({
                      afterclose: function (event, ui) {
                             // console.log('! close !');
-                            $.mobile.changePage(data.url);
+                            // $.mobile.changePage(data.url);
                         }
                     });
-                    $('#info-title').html('Successful');
-                    $('#into').html('Register code has been sent to your email box. Please use the link to active your account.');
+                    $('#info-title').html(errorThrown);
+                    $('#info').html('Please try again later.');
                     $('#info-dialog').popup('open');
             }
         });

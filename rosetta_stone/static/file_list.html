@@ -5,15 +5,15 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>file list</title>
 	<link rel="shortcut icon" href="favicon.ico">
-	<link rel="stylesheet" href="http://demos.jquerymobile.com/1.4.5/css/themes/default/jquery.mobile-1.4.5.min.css">
-	<link rel="stylesheet" href="http://demos.jquerymobile.com/1.4.5/_assets/css/jqm-demos.css">
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+	<link rel="stylesheet" href="https://demos.jquerymobile.com/1.4.5/css/themes/default/jquery.mobile-1.4.5.min.css">
+	<link rel="stylesheet" href="https://demos.jquerymobile.com/1.4.5/_assets/css/jqm-demos.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
 
     <link rel="stylesheet" href="http://demos.jquerymobile.com/1.4.5/_assets/css/jqm-demos.css">
 
-	<script src="http://demos.jquerymobile.com/1.4.5/js/jquery.js"></script>
-	<script src="http://demos.jquerymobile.com/1.4.5/_assets/js/index.js"></script>
-	<script src="http://demos.jquerymobile.com/1.4.5/js/jquery.mobile-1.4.5.min.js"></script>
+	<script src="https://demos.jquerymobile.com/1.4.5/js/jquery.js"></script>
+	<script src="https://demos.jquerymobile.com/1.4.5/_assets/js/index.js"></script>
+	<script src="https://demos.jquerymobile.com/1.4.5/js/jquery.mobile-1.4.5.min.js"></script>
 
     <script src="js/file_list.js"></script>
 
@@ -50,25 +50,36 @@
 
     <div data-role="panel" class="jqm-navmenu-panel" data-position="left" data-display="overlay" data-theme="a">
         <ul class="jqm-list ui-alt-icon ui-nodisc-icon">
-        <li data-filtertext="demos homepage" data-icon="home">
-            <a href="index.html" data-ajax="false">Logout</a>
-        </li>
-        <li data-filtertext="form button widget input button submit reset">
-            <a href="open_about.html" data-ajax="false">About</a>
-        </li>
-     </ul>
+            <li data-filtertext="form button widget input button submit reset">
+                <a href="change_password.html" data-ajax="false">Change Password</a>
+            </li>
+            <li data-filtertext="form button widget input button submit reset">
+                <a href="open_about.html" data-ajax="false">About</a>
+            </li>
+            <li data-filtertext="demos homepage" data-icon="home">
+                <a href="logout" data-ajax="false">Logout</a>
+            </li>
+        </ul>
     </div><!-- /panel -->
 
     <div data-role="main" class="ui-content jqm-content"> <!-- <div data-role="content" class="content" style="width: 280px; margin:0 auto;"> -->
     <!-- <div role="main" class="ui-content jqm-content" style="width: 280px; float: clear; margin:0 auto; text-align:center;"> -->
 
+        <!--
         <form style="display: inline;" data-ajax="false" action="submit_file.html" method="get" id="submit-form">
             <button data-ajax="false" id="submit-file-button" class="ui-btn ui-corner-all ui-btn-inline">Submit</button>
         </form>
+        -->
 
+        <a href="submit_file.html" data-ajax="false" class="ui-btn ui-corner-all ui-btn-inline">Submit</a>
+
+        <a href="type_text.html" data-ajax="false" class="ui-btn ui-corner-all ui-btn-inline">Text File</a>
+
+        <!--
         <form style="display: inline;" data-ajax="false" action="text_file.html" method="get" id="text-file-form">
             <button data-ajax="false" id="text-file-button" class="ui-btn ui-corner-all ui-btn-inline">Text File</button>
         </form>
+        -->
 
         <table data-role="table" id="file-list-table" data-mode="reflow" class="file-list ui-responsive">
             <thead>

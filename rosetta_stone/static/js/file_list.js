@@ -4,6 +4,6 @@ $(function() {
     });
 
     $('#text-file-button').click(function() {
-        $.mobile.changePage('text_file.html');
+        $.mobile.changePage('type_text.html');
     });
 });
